@@ -1,0 +1,51 @@
+//
+//  PrefixHeader.pch
+//  Vividia
+//
+//  Created by Arvin on 2017/4/10.
+//  Copyright © 2017年 Arvin. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#ifdef __OBJC__
+#import <Availability.h>
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+
+#if DEBUG
+#define UI_DBG  1
+#define SERVER_DBG  1
+#define BLUE_DBG    1
+#else
+#define UI_DBG  0
+#define SERVER_DBG  0
+#define BLUE_DBG    0
+#endif
+
+#if UI_DBG
+#define DBG(fmt,arg...) NSLog(fmt, ##arg)
+#else
+#define DBG(fmt,arg...)
+#endif
+
+#if SERVER_DBG
+#define S_DBG(fmt,arg...) NSLog(fmt, ##arg)
+#else
+#define S_DBG(fmt,arg...)
+#endif
+
+#if BLUE_DBG
+#define SDK_DBG(fmt,arg...) NSLog(fmt, ##arg)
+#else
+#define SDK_DBG(fmt,arg...)
+#endif
+
+
+#endif
+#endif /* PrefixHeader_pch */
